@@ -9,6 +9,7 @@ phases:
 
 artifacts:
   type: zip
+  name: pdftotextzip
   files:
     - pdftotxt.yaml
     - lambdaoutput.yaml
