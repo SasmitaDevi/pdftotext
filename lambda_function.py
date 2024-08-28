@@ -2,7 +2,6 @@ import boto3
 import json
 import os
 import logging
-import pkg_resources
 import pypdf
 from pypdf import PdfReader
 from io import BytesIO
