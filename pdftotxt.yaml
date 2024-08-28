@@ -16,12 +16,12 @@ Resources:
         Variables:
           TARGET_BUCKET: pdftextstage2bucket
       Policies: AWSLambdaExecute
-        Events:
-          CreatepdftotextEvent:
-            Type: S3
-            Properties:
-              Bucket: !Ref testBucket
-              Events: s3:ObjectCreated:*
+      Events:
+        CreatepdftotextEvent:
+          Type: S3
+          Properties:
+            Bucket: !Ref testBucket
+            Events: s3:ObjectCreated:*
   testBucket:
     Type: AWS::S3::Bucket
 
