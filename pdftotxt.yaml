@@ -13,7 +13,7 @@ Resources:
       Timeout: 900
       Role: 'arn:aws:iam::637423317527:role/multirolelamda'
       events:
-      - s3:
+        - s3:
           bucket: mypdftxtbucket
           event: s3:ObjectCreated:*
           existing: true
