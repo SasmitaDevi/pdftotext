@@ -12,11 +12,6 @@ Resources:
       MemorySize: 512
       Timeout: 900
       Role: 'arn:aws:iam::637423317527:role/multirolelamda'
-      events:
-        - s3:
-          bucket: mypdftxtbucket
-          event: s3:ObjectCreated:*
-          existing: true
       Environment:
         Variables:
           TARGET_BUCKET: pdftextstage2bucket
