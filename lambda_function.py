@@ -32,7 +32,7 @@ def extract_content(event):
     except:
         targetBucket = "sascdnbucket"
     print('Target bucket is', targetBucket)
-    print('Default bucket is', targetBucket)
+    print('Default bucket name is', targetBucket)
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = event['Records'][0]['s3']['object']['key']
     print('The s3 bucket is', bucket, 'and the file name is', key)
