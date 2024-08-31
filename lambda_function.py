@@ -30,7 +30,7 @@ def extract_content(event):
         #Read the target bucket from the lambda environment variable
         targetBucket = os.environ['TARGET_BUCKET']
     except:
-        targetBucket = "sascdnbucket"
+        targetBucket = "artifactoutbucket"
     print('Target bucket is', targetBucket)
     print('Default bucket name is', targetBucket)
     bucket = event['Records'][0]['s3']['bucket']['name']
