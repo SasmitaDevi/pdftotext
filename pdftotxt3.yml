@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Serverless Specification template describing your function.
 Resources:
-  MyLambdaLayer:
+  PDFtoTXTLayer:
     Type: AWS::Lambda::LayerVersion
     Properties:
       LayerName: my-lambda-layer
@@ -16,7 +16,7 @@ Resources:
     Type: AWS::S3::Bucket
     DependsOn: ExampleInvokePermission
     Properties:
-      BucketName: mypdftxtbucket123
+      BucketName: pdfbucket31
       NotificationConfiguration:
         LambdaConfigurations:
           - Event: s3:ObjectCreated:Put
@@ -37,20 +37,20 @@ Resources:
       Action: lambda:InvokeFunction
       Principal: s3.amazonaws.com
       SourceArn:
-        Fn::Sub: arn:aws:s3:::mypdftxtbucket123  
+        Fn::Sub: arn:aws:s3:::pdfbucket31  
   pdftotxt:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.12
       CodeUri: .
-      Description: 'test lambda'
+      Description: 'pdf to text lambda'
       MemorySize: 512
       Timeout: 900
       Role: 'arn:aws:iam::637423317527:role/multirolelamda'
       Environment:
         Variables:
-          TARGET_BUCKET: pdftextstage2bucket
+          TARGET_BUCKET: txtbucketstage2
     
       Layers:
-        - !Ref MyLambdaLayer
+        - !Ref PDFtoTXTLayer
