@@ -16,7 +16,7 @@ Resources:
     Type: AWS::S3::Bucket
     DependsOn: ExampleInvokePermission
     Properties:
-      BucketName: pdfbucket31
+      BucketName: pdffilestorebucket
       NotificationConfiguration:
         LambdaConfigurations:
           - Event: s3:ObjectCreated:Put
@@ -37,7 +37,7 @@ Resources:
       Action: lambda:InvokeFunction
       Principal: s3.amazonaws.com
       SourceArn:
-        Fn::Sub: arn:aws:s3:::pdfbucket31  
+        Fn::Sub: arn:aws:s3:::pdffilestorebucket  
   pdftotxt:
     Type: 'AWS::Serverless::Function'
     Properties:
