@@ -5,11 +5,11 @@ Resources:
   PDFtoTXTLayer:
     Type: AWS::Lambda::LayerVersion
     Properties:
-      LayerName: my-lambda-layer
-      Description: My Lambda Layer
+      LayerName: PDFtoTXTLayer
+      Description: PDFtoTXTLayer
       Content:
         S3Bucket: artifactoutbucket
-        S3Key: appbase.zip
+        S3Key: pypdf.zip
       CompatibleRuntimes:
         - python3.12
   PdftotxtS3:
